@@ -1,0 +1,11 @@
+.catalog:
+  name: Nexus OSS 3
+  version: 3.0.1-01
+  description: Sonatype Nexus Repository Manager OSS 3
+  questions:
+  - variable: "PORT"
+    type: "int"
+    label: "Port Number"
+    description: "Which port should Jenkins listen on?"
+    default: 8081
+    required: true

@@ -1,0 +1,16 @@
+nexus3:
+  image: "sonatype/nexus3"
+  ports:
+    - "${PORT}:8081"
+  labels:
+    io.rancher.sidekicks: nexus3-datavolume
+    io.rancher.container.hostname_override: container_name
+  volumes_from:
+    - nexus3-datavolume
+nexus3-datavolume:
+  image: "sonatype/nexus3"
+  volumes:
+    - /var/jenkins_home
+  labels:
+    io.rancher.container.start_once: true
+  entrypoint: ["echo", "data-only container for Nexus"]
